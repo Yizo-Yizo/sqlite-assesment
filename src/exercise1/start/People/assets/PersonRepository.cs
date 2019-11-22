@@ -44,6 +44,16 @@ namespace People
         public List<Person> GetAllPeople()
         {
             // TODO: return a list of people saved to the Person table in the database
+            try
+            {
+                return conn.Table<Person>().ToList();
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+            }
+
+            return new List<Person>();
         }
     }
 }

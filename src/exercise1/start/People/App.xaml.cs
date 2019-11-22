@@ -17,7 +17,7 @@ namespace People
 
             MainPage = new People.MainPage()
             {
-                Text = dbPath,
+                
             };
         }
 

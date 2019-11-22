@@ -8,12 +8,16 @@ namespace People
 {
     public class PersonRepository
     {
+
+        private SQLiteConnection conn;
         public string StatusMessage { get; set; }
 
         public PersonRepository(string dbPath)
         {
-            // TODO: Initialize a new SQLiteConnection
-            // TODO: Create the Person table
+            //  Initialize a new SQLiteConnection
+            //  Create the Person table
+            conn = new SQLiteConnection(dbPath);
+            conn.CreateTable<Person>();
         }
 
         public void AddNewPerson(string name)
@@ -28,6 +32,7 @@ namespace People
                 // TODO: insert a new person into the Person table
 
                 StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, name);
+                result = conn.Insert(new Person { Name = name });
             }
             catch (Exception ex)
             {

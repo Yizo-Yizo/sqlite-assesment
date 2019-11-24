@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using People.Models;
 using SQLite;
 
@@ -41,12 +42,12 @@ namespace People
 
         }
 
-        public List<Person> GetAllPeople()
+        public async Task<List<Person>> GetAllPeople()
         {
             // TODO: return a list of people saved to the Person table in the database
             try
             {
-                return conn.Table<Person>().ToList();
+                return await conn.Table<Person>().ToListAsync();
             }
             catch (Exception ex)
             {

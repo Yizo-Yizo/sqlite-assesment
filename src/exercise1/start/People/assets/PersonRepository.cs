@@ -42,12 +42,11 @@ namespace People
 
         }
 
-        public async Task<List<Person>> GetAllPeople()
+        public List<Person> GetAllPeople()
         {
-            // TODO: return a list of people saved to the Person table in the database
             try
             {
-                return await conn.Table<Person>().ToListAsync();
+                return conn.Table<Person>().ToList();
             }
             catch (Exception ex)
             {

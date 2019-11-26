@@ -20,11 +20,11 @@ namespace People
             statusMessage.Text = App.PersonRepo.StatusMessage;
         }
 
-        public async void OnGetButtonClicked(object sender, EventArgs args)
+        public void OnGetButtonClicked(object sender, EventArgs args)
         {
             statusMessage.Text = "";
 
-            List<Person> people = await App.PersonRepo.GetAllPeople();
+            List<Person> people = App.PersonRepo.GetAllPeople();
             peopleList.ItemsSource = people;
         }
     }
